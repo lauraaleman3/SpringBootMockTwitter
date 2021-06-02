@@ -18,11 +18,16 @@ import com.tts.TechTalentTwitter.service.UserService;
 
 @Controller
 public class TweetController {
-    @Autowired
+//    @Autowired
     private UserService userService;
 
-    @Autowired
+//    @Autowired
     private TweetService tweetService;
+
+    public TweetController(UserService userService, TweetService tweetService) {
+        this.userService = userService;
+        this.tweetService = tweetService;
+    }
 
     @GetMapping(value= {"/tweets", "/"})
     public String getFeed(Model model){
